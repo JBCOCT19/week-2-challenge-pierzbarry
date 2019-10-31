@@ -133,4 +133,3 @@ public class Main {
         return sourCream.get((int) (Math.random() * sourCream.size()));
     }
 }
-

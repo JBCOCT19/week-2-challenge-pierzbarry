@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        //
         int counter = 1;
         int ingCounter = 0;
 
@@ -101,6 +100,7 @@ public class Main {
         return veggies.get((int) (Math.random() * veggies.size()));
     }
 
+    // these all could be boolean but i'm too lazy to change it before deadline lol
     private static String cheeseOptions(){
         ArrayList<String> cheese = new ArrayList<>();
         cheese.add(" cheese,");

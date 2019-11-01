@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Main {
 
@@ -10,16 +11,11 @@ public class Main {
 
         do {
             ArrayList<String> burrito = new ArrayList<>();
-
-            burrito.add(riceOptions()); burrito.add(meatOptions());
-            burrito.add(beanOptions()); burrito.add(salsaOptions());
-            burrito.add(veggieOptions()); burrito.add(cheeseOptions());
-            burrito.add(guacOptions()); burrito.add(quesoOptions());
-            burrito.add(sourCreamOptions());
+            Collections.addAll(burrito, riceOptions(), meatOptions(), beanOptions(), salsaOptions(),
+                    veggieOptions(), cheeseOptions(), guacOptions(), quesoOptions(), sourCreamOptions());
 
             System.out.print("Burrito " + counter + ": ");
             for (int i = 0; i < burrito.size(); i++) {
-                String tempStr = "";
 
                 if (!burrito.get(i).contains("no")) {
                     ingCounter++;
@@ -28,7 +24,7 @@ public class Main {
                     burrito.remove("X");
                 }
 
-                System.out.print(burrito.get(i) + tempStr);
+                System.out.print(burrito.get(i));
             }
 
             cost(ingCounter);
@@ -48,54 +44,40 @@ public class Main {
 
     private static String riceOptions(){
         ArrayList<String> rice = new ArrayList<>();
-        rice.add(" white rice,");
-        rice.add(" brown rice,");
-        rice.add(" no rice,");
-        rice.add(" all rice,");
+        Collections.addAll(rice, " white rice,", " brown rice,",
+                " no rice,", " all rice,");
 
         return rice.get((int) (Math.random() * rice.size()));
     }
 
     private static String meatOptions(){
         ArrayList<String> meat = new ArrayList<>();
-        meat.add(" steak,");
-        meat.add(" chicken,");
-        meat.add(" chorizo,");
-        meat.add(" sofritas,");
-        meat.add(" veggies,");
-        meat.add(" no meat,");
-        meat.add(" all meat,");
+        Collections.addAll(meat, " steak,", " chicken,", " chorizo,",
+                " sofritas,", " veggies,", " no meat,", " all meat");
 
         return meat.get((int) (Math.random() * meat.size()));
     }
 
     private static String beanOptions(){
         ArrayList<String> beans = new ArrayList<>();
-        beans.add(" pinto beans,");
-        beans.add(" black beans,");
-        beans.add(" no beans,");
-        beans.add(" all beans,");
+        Collections.addAll(beans, " pinto beans,", " black beans",
+                " no beans,", " all beans,");
 
         return beans.get((int) (Math.random() * beans.size()));
     }
 
     private static String salsaOptions(){
         ArrayList<String> salsa = new ArrayList<>();
-        salsa.add(" mild salsa,");
-        salsa.add(" medium salsa,");
-        salsa.add(" hot salsa,");
-        salsa.add(" no salsa,");
-        salsa.add(" all salsa,");
+        Collections.addAll(salsa, " mild salsa,", " medium salsa,",
+                " hot salsa,", " no salsa,", " all salsa,");
 
         return salsa.get((int) (Math.random() * salsa.size()));
     }
 
     private static String veggieOptions(){
         ArrayList<String> veggies = new ArrayList<>();
-        veggies.add(" lettuce,");
-        veggies.add(" fajita veggies,");
-        veggies.add(" no veggies,");
-        veggies.add(" all veggies,");
+        Collections.addAll(veggies, " lettuce,", " fajita veggies,",
+                " no veggies,", " all veggies,");
 
         return veggies.get((int) (Math.random() * veggies.size()));
     }
@@ -132,4 +114,14 @@ public class Main {
 
         return sourCream.get((int) (Math.random() * sourCream.size()));
     }
+
+//    public static String beanPicker() {
+//        ArrayList<String> beans = new ArrayList<>();
+//            beans.add("black beans");
+//            beans.add("pinto beans");
+//
+//            Random r = new Ranom();
+//            int randomIndex = r.nextInt(beans.size());
+//        return beans.get(randomIndex);
+//    }
 }
